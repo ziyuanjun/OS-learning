@@ -13,7 +13,9 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 26.0.50.2 (Org mode 9.0.4)
 
-1. 建立文件 ~/.xmodmaprc
+* xmodmap命令
+   建立文件 ~/.Xmodmaprc
+   
    内容如下：
    #+BEGIN_SRC sh
     !
@@ -27,14 +29,21 @@
     add Control = Control_L
    #+END_SRC
    (去掉注释能交换 Caps_Lock 和 Control_L。)
+
    然后直接运行：
    #+BEGIN_SRC sh
-    xmodmap .xmodmaprc
+    xmodmap ~/.Xmodmaprc
    #+END_SRC
    就能将 Caps_Lock 改为Control_L。
    
-2. 开机启动
-   在 ~/.bashrc中添加一行：
-   #+BEGIN_SRC sh
-    xmodmap $HOME/.xmodmaprc
-   #+END_SRC
+* TODO 开机启动
+
+  - 在 ~/.bashrc中添加一行：
+     #+BEGIN_SRC sh
+       xmodmap $HOME/.xmodmaprc
+     #+END_SRC
+     这种方法会在每次打开bash时都执行一次，不满足要求。
+  - 在/etc/rd.local中加入上述行――>失败
+  - 在 ~/.bash_profile中加入上述行――>失败
+  - 使用Startup application-->失败:
+    [[file:改键.org_imgs/20170409_141252_21084ez.png]]
