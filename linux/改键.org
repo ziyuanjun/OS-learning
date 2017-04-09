@@ -1,0 +1,35 @@
+# -*- eval: (setq org-download-image-dir (file-name-sans-extension (buffer-name))); -*-
+# -*- org-export-babel-evaluate: nil; -*-
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgstyle.css"/>
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:t arch:headline author:t c:nil S:nil -:nil
+#+OPTIONS: creator:nil d:(not "En") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t 
+#+OPTIONS: ^:{}
+#+LATEX_CLASS: ctexart
+#+STARTUP: entitiespretty:t
+#+TITLE: Ubuntu系统Caps_Lock改为Contrl_L
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50.2 (Org mode 9.0.4)
+
+1. 建立文件 ~/.xmodmaprc
+
+   内容如下
+   #+BEGIN_SRC sh
+    !
+    ! Change Caps_Lock to Control_L
+    !
+    remove Lock = Caps_Lock
+    remove Control = Control_L
+    !keysym Control_L = Caps_Lock
+    keysym Caps_Lock = Control_L
+    ! add Lock = Caps_Lock
+    add Control = Control_L
+   #+END_SRC
+2. 开机启动
+
+   在 ~/.bashrc中添加一行：
+   #+BEGIN_SRC sh
+    xmodmap $HOME/.xmodmaprc
+   #+END_SRC
