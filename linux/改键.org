@@ -14,8 +14,7 @@
 #+CREATOR: Emacs 26.0.50.2 (Org mode 9.0.4)
 
 1. 建立文件 ~/.xmodmaprc
-
-   内容如下
+   内容如下：
    #+BEGIN_SRC sh
     !
     ! Change Caps_Lock to Control_L
@@ -27,8 +26,14 @@
     ! add Lock = Caps_Lock
     add Control = Control_L
    #+END_SRC
+   (去掉注释能交换 Caps_Lock 和 Control_L。)
+   然后直接运行：
+   #+BEGIN_SRC sh
+    xmodmap .xmodmaprc
+   #+END_SRC
+   就能将 Caps_Lock 改为Control_L。
+   
 2. 开机启动
-
    在 ~/.bashrc中添加一行：
    #+BEGIN_SRC sh
     xmodmap $HOME/.xmodmaprc
