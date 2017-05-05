@@ -1,24 +1,37 @@
 * 安装字体
 1. 在/usr/share/fonts/下新建文件夹，比如winFonts
+   #+BEGIN_SRC sh
    sudo mkdir -p /usr/share/fonts/winFonts
+   #+END_SRC
 
    关于字体的存放路径[fn:1]：
+
    /usr/share/fonts/  #系统字体，需要root权限才能操作
+
    ~/.local/share/fonts #用户字体，随便怎么搞，推荐
 
 2. 将字体文件拷贝到此文件夹下
+   #+BEGIN_SRC sh
    sudo cp Yahei.ttf /usr/share/fonts/winFonts/
+   #+END_SRC
 3. 改变权限：
+   #+BEGIN_SRC sh
    sudo chmod 644 /usr/share/fonts/winFonts/Yahei.ttf
+   #+END_SRC
    (改成755也没问题的，但起码要444)
+
    644: 即当前用户读写，当前组用户只读，其他用户只读。
 4. 开始安装：
+   #+BEGIN_SRC sh
     cd /usr/share/fonts/winFonts/ (似乎不用到目录下就可以执行后面的命令)
     sudo mkfontscale （创建雅黑字体的fonts.scale文件，它用来控制字体旋转缩放）
     sudo mkfontdir （创建雅黑字体的fonts.dir文件，它用来控制字体粗斜体产生）
     sudo fc-cache -fv （建立字体缓存信息，也就是让系统认识认识雅黑）
+   #+END_SRC
 5. 查看系统支持的字体
+   #+BEGIN_SRC sh
    fc-list :lang=zh
+   #+END_SRC
 * 字体的获取
   [[http://wiki.ubuntu.com.cn/%E5%85%8D%E8%B4%B9%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93][ubuntu免费中文字体]]
 
