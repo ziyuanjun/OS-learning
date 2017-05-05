@@ -36,7 +36,7 @@
    #+END_SRC
    就能将 Caps_Lock 改为Control_L。
    
-* TODO 开机启动
+* 开机启动
 
   - 在 ~/.bashrc中添加一行：
      #+BEGIN_SRC sh
@@ -47,3 +47,7 @@
   - 在 ~/.bash_profile中加入上述行――>失败
   - 使用Startup application-->失败:
     [[file:改键.org_imgs/20170409_141252_21084ez.png]]
+  - 目前是打开终端后手动运行来换键
+     #+BEGIN_SRC sh
+     xmodmap .Xmodmaprc
+     #+END_SRC
