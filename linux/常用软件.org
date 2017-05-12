@@ -1,0 +1,5 @@
+1. chm 阅读器
+   #+BEGIN_SRC sh
+   sudo apt-get install kchmviewer
+   #+END_SRC
+2. 
