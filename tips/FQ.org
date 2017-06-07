@@ -1,0 +1,8 @@
+1. 安装ss-qt
+   #+BEGIN_SRC sh
+    sudo add-apt-repository ppa:hzwhuang/ss-qt5
+    sudo apt-get update
+    sudo apt-get install shadowsocks-qt5
+   #+END_SRC
+2. 配置
+[[file:FQ.org_imgs/20170516_222138_11561NGO.png]]

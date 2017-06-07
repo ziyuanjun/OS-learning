@@ -2,4 +2,20 @@
    #+BEGIN_SRC sh
    sudo apt-get install kchmviewer
    #+END_SRC
-2. 
+2. 文献管理[fn:1]
+   + zotero[fn:2][fn:3]
+     #+BEGIN_SRC sh
+     sudo add-apt-repository ppa:smathot/cogscinl
+     sudo apt-get update
+     sudo apt-get install zotero-standalone
+     #+END_SRC
+   + 
+
+* Footnotes
+
+[fn:3] http://nickjudd.com/blog/2016/02/13/emacs-notes/
+
+[fn:2] http://www.mkbehr.com/posts/research-workflow/
+
+[fn:1] http://www.cogsci.nl/qnotero
+
