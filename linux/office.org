@@ -1,0 +1,2 @@
+通过 playonlinux 来安装 office:
+http://linuxpitstop.com/install-microsoft-office-2010-on-ubuntu-15-04/

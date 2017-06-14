@@ -1,0 +1,4 @@
+安装 youdao 本地词典
+
+安装 ghome 词典插件 ChaZD
+https://github.com/ververcpp/ChaZD
