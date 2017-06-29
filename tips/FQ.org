@@ -6,3 +6,10 @@
    #+END_SRC
 2. 配置
 [[file:FQ.org_imgs/20170516_222138_11561NGO.png]]
+
+
+3. bandwagon VPS
+   - 定期升级
+     #+BEGIN_SRC sh
+     yum -y update
+     #+END_SRC

@@ -9,7 +9,7 @@
      sudo apt-get update
      sudo apt-get install zotero-standalone
      #+END_SRC
-   + 
+3. 音频控制软件：Audacity
 
 * Footnotes
 
