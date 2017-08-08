@@ -1,4 +1,28 @@
 通过 playonlinux 来安装 office:
-http://linuxpitstop.com/install-microsoft-office-2010-on-ubuntu-15-04/
 
-[[file:office.org_imgs/20170615_070950_25781ELc.png]]
+1. 安装 playonlinux 的方法
+  http://linuxpitstop.com/install-microsoft-office-2010-on-ubuntu-15-04/
+
+2. 缺少组件
+  [[file:office.org_imgs/20170615_070950_25781ELc.png]]
+
+  解决方式：
+  安装winbind
+
+3. 准备软件安装文件
+  安装 visio ,选择安装文件（.exe 文件）。
+
+4. 出现字体不正常显示的问题：
+  [[file:office.org_imgs/20170801_090556_2034lSe.png]]
+
+  解决方法：
+  在终端输入
+   #+BEGIN_SRC sh
+   wine regedit 
+   #+END_SRC
+   然后按[[https://www.oulan.com/blog/2010/01/30/linux-wine-chinese/][此处]] 的方法设置。
+   两种方法都试过了，并没有成功，也许要重启电脑。
+6. 安装完成后，软件也无法启动：
+  [[file:office.org_imgs/20170801_090758_2034yck.png]]
+
+有这么多的坑，难以想象我竟然安装成功过！那是多么的幸运啊。

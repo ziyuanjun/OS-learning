@@ -51,3 +51,14 @@
      #+BEGIN_SRC sh
      xmodmap .Xmodmaprc
      #+END_SRC
+    使用 alias把这条命令用简单的命令替换：
+    #+BEGIN_SRC sh
+    alias CC='xmodmap ~/.Xmodmaprc'
+    #+END_SRC
+    为了alias使永久生效，将其放入 ~/.bashrc中
+
+* FAQ:
+  在我的另一台电脑里，在 .bashrc中添加一行：
+  #+BEGIN_SRC sh
+  #xmodmap -e "keycode 66 = Control_L"
+  #+END_SRC

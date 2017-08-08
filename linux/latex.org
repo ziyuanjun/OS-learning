@@ -1,10 +1,10 @@
 安装Texlive后需要注意的问题：
 
 1. 升级
-#+BEGIN_SRC sh
-sudo tlmgr update --self --all
-#+END_SRC
-参考 http://www.bkjia.com/Linuxjc/1148621.html
+  #+BEGIN_SRC sh
+  sudo tlmgr update --self --all
+  #+END_SRC
+  参考 http://www.bkjia.com/Linuxjc/1148621.html
 
 2. 中文字体
 
@@ -20,4 +20,20 @@ sudo tlmgr update --self --all
 
    - 分章节插入参考文献
       https://www.douban.com/note/331370169/
-      注意是用 \include{chap01}
+     1. 用 \include{chap0X} 的方式插入各个章节的 .tex 文件；
+
+     2. 每个章节的 .tex 文件尾部都要指明
+        \bibliographystyle 和 \bibliography
+
+     3. 编译顺序
+
+      #+BEGIN_SRC sh
+      xelatex xxx.tex
+
+      bibtex chap01.aux
+      bibtex chap02.aux
+      bibtex chap0N.aux
+
+      xelatex xxx.tex
+      xelatex xxx.tex
+      #+END_SRC
