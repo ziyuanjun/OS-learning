@@ -1,15 +1,42 @@
-1. 安装ss-qt
+* bandwagon
+** 买VPS
+   到主页购买虚拟主机：
+   https://bandwagonhost.com
+
+** 安装 ss
    #+BEGIN_SRC sh
-    sudo add-apt-repository ppa:hzwhuang/ss-qt5
-    sudo apt-get update
-    sudo apt-get install shadowsocks-qt5
+   yum -y install python-setuptools && easy_install pip
+   pip install shadowsocks
    #+END_SRC
-2. 配置
-[[file:FQ.org_imgs/20170516_222138_11561NGO.png]]
 
 
-3. bandwagon VPS
-   - 定期升级
+** 编辑 ss 配置文件 :secret:
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+jA0EBwMCdE7JtsLwI2Tm0sAqAZyHSea+SH3pe+W1cglPl4Hfq31ApLYJsvK2Ehid
++XXXe5UCWtdbi3apxFuNSev/fZch7/H3mxELDIV9MojXgAKuH2eucMwdINuOV0dq
+JwFfmVk/iujhXmed9ttMMd92Pgzi+VM9cAlOSpVfgu6wYBkWveDDw+RwqyvOaDCM
+1yvF6xN/+m17LB6Kqxtfaw2gYLvoMDpeNVBRBlF9S7rhe0HZktt6it0P9S23Q2RR
+jc8OQqVvi0libFmEtAdhgcuDgUcTygFWXZ99IPVt++MVsMwmR/C6rt0exdeT6184
+eHkyPlSMjjgdDb6m
+=JOmp
+-----END PGP MESSAGE-----
+
+** 定期升级
+   #+BEGIN_SRC sh
+   yum -y update
+   #+END_SRC
+* 客户端
+
+  1. 安装ss-qt
      #+BEGIN_SRC sh
-     yum -y update
+     sudo add-apt-repository ppa:hzwhuang/ss-qt5
+     sudo apt-get update
+     sudo apt-get install shadowsocks-qt5
      #+END_SRC
+  2. 配置
+  [[file:FQ.org_imgs/20170516_222138_11561NGO.png]]
+
+
+  3. bandwagon VPS
