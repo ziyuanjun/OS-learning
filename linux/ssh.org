@@ -1,0 +1,20 @@
+* linux下ssh远程登录服务器
+
+** 基本登录命令：
+#+BEGIN_SRC sh
+ssh usrname@ip_of_server
+#+END_SRC
+Then after inputing the password, you can login.
+
+** 免密登录：
+
+1. copy 本地.ssh/id_rsa.pub to server
+2. login server and run
+    #+BEGIN_SRC sh
+    cat id_rsa.pub >> .ssh/authorized_keys
+    #+END_SRC
+3. logout. Then you can login without password.
+
+** 参考：
+
+http://blog.csdn.net/qiushisoftware/article/details/55258624
