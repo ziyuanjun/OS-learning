@@ -10,7 +10,7 @@
 
 3. 参考文献
    - 编译方法
-      参考《latex 入门，李海洋》
+      参考《latex 入门，刘海洋》
       #+BEGIN_SRC sh
       xelatex xxx.tex
       bibtex xxx.aux

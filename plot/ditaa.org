@@ -1,0 +1,3 @@
+http://emacser.com/emacs-ditaa.htm
+
+http://ditaa.sourceforge.net/

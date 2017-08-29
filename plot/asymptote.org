@@ -1,0 +1,21 @@
+
+* 安装 Asymptote
+** 官网：
+ http://asymptote.sourceforge.net/
+ 其中的 [[http://asymptote.sourceforge.net/doc/][Documentation]] 详细地介绍了安装步骤。
+ 我使用的是 Ubuntu, 采用 asymptote-2.41.i386.tgz [[http://asymptote.sourceforge.net/doc/UNIX-binary-distributions.html#UNIX-binary-distributions][binary distribution]]。
+
+** 配置
+显示图片还需要 gv, 通过 `sudo apt install gv` 可安装。
+ghostscript, 已经装了。
+
+Adobe Reader: 官网已经移除了 linux 系统的安装包，也许不一定要安装这个软件。
+
+配置文件 ~/.asy/config.asy 如果不存在，就新建该文件：
+#+BEGIN_QUOTE
+import settings;
+psviewer="gv";
+pdfviewer="evince"; // ubuntu 16.04 的默认pdf viewer
+gs="gs";
+#+END_QUOTE
+

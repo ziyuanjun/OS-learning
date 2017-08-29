@@ -15,6 +15,17 @@ Then after inputing the password, you can login.
     #+END_SRC
 3. logout. Then you can login without password.
 
+
+FAQ:
+1.
+   ssh: connect to host 192.168.0.101 port 22: Connection refused
+   检查远程是否安装了 ssh server:
+    1.是否安装ssh-server:
+
+打开"终端窗口"，输入"sudo ps -e |grep ssh"-->回车-->有sshd,说明ssh服务已经启动，如果没有启动，输入"sudo service ssh start"-->回车-->ssh服务就会启动。若无sshd:
+
+打开"终端窗口"，输入"sudo apt-get install openssh-server"-->回车-->输入"y"-->回车-->安装完成。
+
 ** 参考：
 
 http://blog.csdn.net/qiushisoftware/article/details/55258624

@@ -1,0 +1,34 @@
+http://users.skynet.be/ppareit/projects/graphviz-dot-mode/graphviz-dot-mode.html
+http://www.graphviz.org/
+
+
+* install
+  #+BEGIN_SRC sh
+  sudo apt install graphviz
+  #+END_SRC
+
+** test
+
+   #+BEGIN_SRC dot :file test.png :results file 
+   digraph G {
+
+   subgraph cluster0 {
+   node [shape=plaintext,style=filled,color=white];
+   gateway [label="网关"];
+   }
+
+   subgraph cluster1 {
+   node [shape=plaintext,style=filled,color=white];
+   host [label="树梅派"];
+   }
+
+   subgraph cluster2 {
+   node [shape=plaintext,style=filled,color=white];
+   server [label="云端"];
+   }
+
+   }
+   #+END_SRC
+
+   #+RESULTS:
+   [[file:test.png]]

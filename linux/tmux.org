@@ -3,6 +3,11 @@ mingxinglai.com/cn/2012/09/tmux/
 http://www.cnblogs.com/cbscan/articles/2888595.html
 http://blog.jobbole.com/87278/
 
+改变布局：
+{
+}
+
+
 * 关闭会话
 
 要关闭会话的话，可以使用如下的命令，该命令和接入会话时所使用的命令很像：
