@@ -14,15 +14,16 @@
 -----BEGIN PGP MESSAGE-----
 Version: GnuPG v2
 
-jA0EBwMCdE7JtsLwI2Tm0sAqAZyHSea+SH3pe+W1cglPl4Hfq31ApLYJsvK2Ehid
-+XXXe5UCWtdbi3apxFuNSev/fZch7/H3mxELDIV9MojXgAKuH2eucMwdINuOV0dq
-JwFfmVk/iujhXmed9ttMMd92Pgzi+VM9cAlOSpVfgu6wYBkWveDDw+RwqyvOaDCM
-1yvF6xN/+m17LB6Kqxtfaw2gYLvoMDpeNVBRBlF9S7rhe0HZktt6it0P9S23Q2RR
-jc8OQqVvi0libFmEtAdhgcuDgUcTygFWXZ99IPVt++MVsMwmR/C6rt0exdeT6184
-eHkyPlSMjjgdDb6m
-=JOmp
+jA0EBwMCHbo67LPkBgfm0sAzASE6hBKb1O7b/lfuzV7fJqt5yGcm/rYex25u39+r
+yYjX47JeoydQQsYyA9U1PGt9hZSpxbgW9JWKF856GhdvDEltbfMX21wpKlTdVM2F
+FkfNak4eL59rDWOCBaWVZK3/Ba8ERAvGFXgYDXTclZcWjCsX+JCuoL1SSFK17tFg
+s8f/J8+BmWxrQ76uywJIAFcWkASgVs1HNbamZDFXFFqdWcWvMdFSvDlBBFNGUAxk
+CIJnRlQG+mptB57yvMmyhPNkfn+6KDmEvdhW9jn/5zz0sUb7ciTVStD9EPAa8IAB
+UBWrg6JaTDAhh4upoTYXFKCZM2nu
+=9C1D
 -----END PGP MESSAGE-----
-
+** 自动
+  [[https://www.linuxbabe.com/linux-server/setup-your-own-shadowsocks-server-on-debian-ubuntu-centos][开机自动启动]]
 ** 定期升级
    #+BEGIN_SRC sh
    yum -y update
