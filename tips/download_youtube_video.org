@@ -1,3 +1,7 @@
 1. The simpliest way:
 
    Add "ss" before "youtube" in the video URL.
+
+2. Add savefrom-helper to Ghrome
+   Refer to this link: https://en.savefrom.net/savefrom-helper-for-google-chrome.php
+   After finished, you can download youtube video by click a button under the video window.
