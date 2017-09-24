@@ -1,0 +1,56 @@
+* 搜索文件夹
+** find
+   find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。
+
+   find的使用格式如下：
+   #+BEGIN_SRC sh
+   　　$ find <指定目录> <指定条件> <指定动作>
+   #+END_SRC
+   　　- <指定目录>： 所要搜索的目录及其所有子目录。默认为当前目录。
+   　　- <指定条件>： 所要搜索的文件的特征。
+   　　- <指定动作>： 对搜索结果进行特定的处理。
+
+   如果什么参数也不加，find默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。
+
+   find的使用实例：
+   #+BEGIN_SRC sh
+   　　$ find . -name 'my*'
+   #+END_SRC
+   搜索当前目录（含子目录，以下同）中，所有文件名以my开头的文件。
+   #+BEGIN_SRC sh
+   　　$ find . -name 'my*' -ls
+   #+END_SRC
+   搜索当前目录中，所有文件名以my开头的文件，并显示它们的详细信息。
+   #+BEGIN_SRC sh
+   　　$ find . -type f -mmin -10
+   #+END_SRC
+   搜索当前目录中，所有过去10分钟中更新过的普通文件。如果不加-type f参数，则搜索普通文件+特殊文件+目录。
+
+* 搜索含有某字符串的文件
+** grep
+   grep是Linux命令行下常用于查找过滤文本文件内容的命令。
+
+   最简单的用法是：
+
+   #+BEGIN_SRC sh
+   grep apple fruitlist.txt
+   #+END_SRC
+   如果想忽略大小写，可以用-i参数：
+   #+BEGIN_SRC sh
+   grep -i apple fruitlist.txt
+   #+END_SRC
+   如果想搜索目录里所有文件，包括子目录的话，并且在结果中显示行号，可以用以下命令：
+   #+BEGIN_SRC sh
+   grep -nr apple *
+   #+END_SRC
+   grep的语法支持正则表达式，正则表达式有些复杂，以后再讲解。下面是一些有用的参数：
+
+   -A num, --after-context=num: 在结果中同时输出匹配行之后的num行
+   -B num, --before-context=num: 在结果中同时输出匹配行之前的num行，有时候我们需要显示几行上下文。
+   -i, --ignore-case: 忽略大小写
+   -n, --line-number: 显示行号
+   -R, -r, --recursive: 递归搜索子目录
+   -v, --invert-match: 输出没有匹配的行
+
+   参考
+   [[http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html][linux 5个查找命令]]

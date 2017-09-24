@@ -1,0 +1,1 @@
+firefox 的searchbar 中的Bing 搜索如果使用了中文，在最终页面中，中文字符变成了问号：？
