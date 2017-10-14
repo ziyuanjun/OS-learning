@@ -1,18 +1,32 @@
 * 安装 GNU global
 
-好像是用来补全代码用的，具体参考：
-https://tuhdo.github.io/c-ide.html
+  好像是用来补全代码用的，具体参考：
+  https://tuhdo.github.io/c-ide.html
 
-先去 global 的[[https://tuhdo.github.io/c-ide.html][官网]] ，然后下源码，编译安装。
+  先去 global 的[[https://tuhdo.github.io/c-ide.html][官网]] ，然后下源码，编译安装。
 
-#+BEGIN_SRC sh
-sudo apt-get install bison
-sudo apt-get install flex
-sudo apt-get install gperf
-sudo apt-get install libtool # was installed but cannot find
-sudo apt-get install libtool-bin
-sh reconf.sh 
-./configure
-make 
-#+END_SRC
+  #+BEGIN_SRC sh
+  sudo apt-get install bison
+  sudo apt-get install flex
+  sudo apt-get install gperf
+  sudo apt-get install libtool # was installed but cannot find
+  sudo apt-get install libtool-bin
+  sh reconf.sh 
+  ./configure
+  make 
+  #+END_SRC
 
+
+* Org 写作常用快捷键
+** 选中（mark）
+   | keying name | function   | 功能            |
+   |-------------+------------+-----------------|
+   | C-c @       |            | 选中当前subtree |
+   | C-M-h       | mark-defun | 选中当前函数    |
+   | C-x h       | mark-      | 选中全文        |
+   | C-x C-p     |            | 选中当前页      |
+** 格式调整
+   | keying name | function   | 功能               |
+   |-------------+------------+--------------------|
+   | C-M \       |            | 对选中部分调整缩进 |
+   |             |            |                    |
