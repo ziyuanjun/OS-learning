@@ -1,21 +1,45 @@
-* 安装 GNU global
+* 常见问题
+** 文字编辑
+   主要列出 insert mode 下的快捷键（因为Vim normal mode 已熟练）。
+*** 删除
+    | keying name | function | 功能           | 备注   |
+    |-------------+----------+----------------+--------|
+    | M-j         |          | 拼音－>En      | 自定义 |
+    | M-k         |          | kill sentence  |        |
+    | C-k         |          | kill line      |        |
+    | M-d         |          | kill word      |        |
+    | C-Backspace |          | kill back word |        |
 
-  好像是用来补全代码用的，具体参考：
-  https://tuhdo.github.io/c-ide.html
+* 使用 tags 浏览代码
+** 几种 tags 工具的对比
+** 安装 GNU global
 
-  先去 global 的[[https://tuhdo.github.io/c-ide.html][官网]] ，然后下源码，编译安装。
+   好像是用来补全代码用的，具体参考：
+   https://tuhdo.github.io/c-ide.html
 
-  #+BEGIN_SRC sh
-  sudo apt-get install bison
-  sudo apt-get install flex
-  sudo apt-get install gperf
-  sudo apt-get install libtool # was installed but cannot find
-  sudo apt-get install libtool-bin
-  sh reconf.sh 
-  ./configure
-  make 
-  #+END_SRC
+   先去 global 的[[https://www.gnu.org/software/global/][官网]] ，然后下源码，编译安装。
 
+   #+BEGIN_SRC sh
+   sudo apt-get install bison
+   sudo apt-get install flex
+   sudo apt-get install gperf
+   sudo apt-get install libtool # was installed but cannot find
+   sudo apt-get install libtool-bin
+   sh reconf.sh 
+   ./configure
+   make 
+   #+END_SRC
+** Emacs 中使用 gtags
+
+   | Keying (normal mode) | keying(insert mode) | function                       | 功能         |
+   |----------------------+---------------------+--------------------------------+--------------|
+   |                      | M-.                 | anaconda-mode-find-definitions | 跳转到定义   |
+   |                      | M-,                 | anaconda-mode-find-assignments | 跳转到赋值   |
+   |                      | M-*                 |                                | 回跳         |
+   | SPC m g g            |                     | spacemacs/jump-to-definition   | 跳转到定义   |
+   | SPC m g u            |                     |                                | 跳转到使用处 |
+   | Spc m g b            |                     |                                | 回跳         |
+   |                      |                     |                                |              |
 
 * Org 写作常用快捷键
 ** 选中（mark）
@@ -26,7 +50,29 @@
    | C-x h       | mark-      | 选中全文        |
    | C-x C-p     |            | 选中当前页      |
 ** 格式调整
-   | keying name | function   | 功能               |
-   |-------------+------------+--------------------|
-   | C-M \       |            | 对选中部分调整缩进 |
-   |             |            |                    |
+   | keying name  | function | 功能               | 备注        |
+   |--------------+----------+--------------------+-------------|
+   | C-M \        |          | 对选中部分调整缩进 |             |
+   | M-h          |          | 标题级别向上一级   | normal mode |
+   | M-l          |          | 标题级别向下一级   | normal mode |
+   | M-leftarrow  |          | 标题级别向上一级   | any mode    |
+   | M-rightarrow |          | 标题级别向下一级   | any mode    |
+   |              |          |                    |             |
+
+** 编辑
+*** 文字编辑
+    这部分编辑功能基本上对所有 mode 都适用，参考[[常见问题]]。
+*** 表格编辑
+*** 超链接
+    参考 org 官网的 [[http://orgmode.org/manual/Handling-links.html][Handle-links]]:
+
+    | keying name   | function | 功能               | 备注        |
+    |---------------+----------+--------------------+-------------|
+    | , i l         |          | 新建链接           | normal mode |
+    | M-m m i l     |          | 新建链接           | insert mode |
+    | C-c C-l       |          | 编辑链接           |             |
+    | C-c C-x C-n/p |          | 下一个/前一个 link |             |
+    | C-c C-o       |          | 打开链接           |             |
+    | Enter         |          | 打开链接           | normal mode |
+    |               |          |                    |             |
+
