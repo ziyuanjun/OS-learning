@@ -13,52 +13,96 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 26.0.50.2 (Org mode 9.0.4)
 
+
+* 查看按键信息
+  交互式地查看
+  #+BEGIN_SRC sh
+  xev
+  #+END_SRC
+
 * xmodmap命令
-   建立文件 ~/.Xmodmaprc
+  建立文件 ~/.Xmodmaprc
    
-   内容如下：
-   #+BEGIN_SRC sh
-    !
-    ! Change Caps_Lock to Control_L
-    !
-    remove Lock = Caps_Lock
-    remove Control = Control_L
-    !keysym Control_L = Caps_Lock
-    keysym Caps_Lock = Control_L
-    ! add Lock = Caps_Lock
-    add Control = Control_L
-   #+END_SRC
-   (去掉注释能交换 Caps_Lock 和 Control_L。)
+  内容如下：
+  #+BEGIN_SRC sh
+  !
+  ! Change Caps_Lock to Control_L
+  !
+  remove Lock = Caps_Lock
+  remove Control = Control_L
+  !keysym Control_L = Caps_Lock
+  keysym Caps_Lock = Control_L
+  ! add Lock = Caps_Lock
+  add Control = Control_L
+  #+END_SRC
+  (去掉注释能交换 Caps_Lock 和 Control_L。)
 
-   然后直接运行：
-   #+BEGIN_SRC sh
-    xmodmap ~/.Xmodmaprc
-   #+END_SRC
-   就能将 Caps_Lock 改为Control_L。
+  然后直接运行：
+  #+BEGIN_SRC sh
+  xmodmap ~/.Xmodmaprc
+  #+END_SRC
+  就能将 Caps_Lock 改为Control_L。
    
-* 开机启动
+** 开机启动
 
-  - 在 ~/.bashrc中添加一行：
-     #+BEGIN_SRC sh
-       xmodmap $HOME/.xmodmaprc
-     #+END_SRC
-     这种方法会在每次打开bash时都执行一次，不满足要求。
-  - 在/etc/rd.local中加入上述行――>失败
-  - 在 ~/.bash_profile中加入上述行――>失败
-  - 使用Startup application-->失败:
-    [[file:改键.org_imgs/20170409_141252_21084ez.png]]
-  - 目前是打开终端后手动运行来换键
-     #+BEGIN_SRC sh
-     xmodmap .Xmodmaprc
-     #+END_SRC
+*** 尝试了以下方法：
+    - 在 ~/.bashrc中添加一行：
+      #+BEGIN_SRC sh
+      xmodmap $HOME/.xmodmaprc
+      #+END_SRC
+      这种方法会在每次打开bash时都执行一次，不满足要求。
+    - 在=/etc/rd.local=中加入上述行――>失败
+    - 在 =~/.bash_profile= 中加入上述行――>失败
+    - 使用Startup application-->失败:
+      [[file:改键.org_imgs/20170409_141252_21084ez.png]]
+*** 折中办法
+    目前是打开终端后手动运行来换键
+    #+BEGIN_SRC sh
+    xmodmap .Xmodmaprc
+    #+END_SRC
     使用 alias把这条命令用简单的命令替换：
     #+BEGIN_SRC sh
     alias CC='xmodmap ~/.Xmodmaprc'
     #+END_SRC
     为了alias使永久生效，将其放入 ~/.bashrc中
 
-* FAQ:
-  在我的另一台电脑里，在 .bashrc中添加一行：
+** 问题
+   xmodmap 在16.04中存在问题：
+   1. 不能开启启动
+   2. 修改后会在一段时间后自动失效
+
+   是否有解决方法？继续尝试了以下方法，最终同样没有起作用！！！
+*** 修改系统文件X11
+    参考 youtube 上的一个[[https://www.youtube.com/watch?v=HskQMorxboY][视频]], 修改 pc 文件
+    #+BEGIN_SRC sh
+    cd /usr/share/X11/xkb/symbols
+    sudo vi pc
+    #+END_SRC
+    将 CAPS 的一行修改为：
+    #+BEGIN_EXAMPLE
+        key <CAPS> {	[ Escape		]	};
+    #+END_EXAMPLE
+    就可以将 capslock 键改为 Esc 键。经过测试，改为 Esc 确实是可行的，但是改成 Control_L：
+    #+BEGIN_EXAMPLE
+        key <CAPS> {	[ Control_L		]	};
+    #+END_EXAMPLE
+    却不行。
+
+    删除临时的文件
+    https://radu.cotescu.com/remapping-keys-in-ubuntu-14.04/
+    也不行。
+*** tweak 
+    也许 gnome tweak 可以
+    https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
+    [[file:改键.org_imgs/20171028_212900_2189HXc.png]]
+
+
+
+
+* AQ:
+  在我的另一台电脑里（LXTE 系统），在 .bashrc中添加一行：
   #+BEGIN_SRC sh
   #xmodmap -e "keycode 66 = Control_L"
   #+END_SRC
+  是可以生效的，但是 unbuntu 16.04 LTS 的电脑都不行。
+  怀疑是这个 ubuntu 发行版的问题。

@@ -1,14 +1,24 @@
 * 常见问题
 ** 文字编辑
+   参考：https://kb.iu.edu/d/aiug
+
    主要列出 insert mode 下的快捷键（因为Vim normal mode 已熟练）。
+*** 粘贴
+   To cut the text, press C-w.
+   To copy the text, press M-w.
+   To paste the text, press C-y. 紧接着 press M-y 可以调出剪切版
+*** 撤销：
+   - =C-_= 常规单步撤销
+   - =C-x u= 图形化编辑历史
+   - =M-x undo= 
 *** 删除
-    | keying name | function | 功能           | 备注   |
-    |-------------+----------+----------------+--------|
-    | M-j         |          | 拼音－>En      | 自定义 |
-    | M-k         |          | kill sentence  |        |
-    | C-k         |          | kill line      |        |
-    | M-d         |          | kill word      |        |
-    | C-Backspace |          | kill back word |        |
+    | keying name | function | 功能           | 备注                  |
+    |-------------+----------+----------------+-----------------------|
+    | M-j         |          | 拼音－>En      | 自定义                |
+    | M-k         |          | kill sentence  | 删到下列符号（. ?等） |
+    | C-k         |          | kill line      |                       |
+    | M-d         |          | kill word      |                       |
+    | C-Backspace |          | kill back word |                       |
 
 * 使用 tags 浏览代码
 ** 几种 tags 工具的对比
@@ -76,3 +86,7 @@
     | Enter         |          | 打开链接           | normal mode |
     |               |          |                    |             |
 
+* 编程
+** python
+   参考 http://codingpy.com/article/emacs-the-best-python-editor/ 给 Emacs 安装 py-autopep8, 使代码遵循 pep8 标准。
+   参考 https://stackoverflow.com/questions/37323112/cant-save-file-autopep8-command-not-found 系统也需要安装 autopep8, 使用 pip install autopep8
