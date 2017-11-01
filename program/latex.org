@@ -1,0 +1,152 @@
+# -*- eval: (setq org-download-image-dir (file-name-sans-extension (buffer-name))); -*-
+# -*- org-export-babel-evaluate: nil; -*-
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgstyle.css"/>
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:t arch:headline author:t c:nil S:nil -:nil
+#+OPTIONS: creator:nil d:(not "En") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t 
+#+OPTIONS: ^:{}
+#+LATEX_CLASS: ctexart
+#+STARTUP: entitiespretty:t
+#+TITLE: Latex 学习笔记
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50.2 (Org mode 9.0.4)
+
+走上一条从用模板到写模板的一条不归路。
+
+* 安装
+** Texlive
+   当我严肃的考虑这个问题时，我已经安装了好几次 Texlive 了，最新的是在 Ubuntu 16.04 下安装 Texlive 2016。以下以此为起点。
+
+   安装Texlive后需要注意的问题：
+   1. 帮助
+      Texlive 安装完成后会在本地生成必要的帮助文件。进入 =/usr/local/texlive/2016/=，打开其中的 =index.html=，这就是入口。
+
+   2. 升级
+      #+BEGIN_SRC sh
+      sudo tlmgr update --self --all
+      #+END_SRC
+      参考 http://www.bkjia.com/Linuxjc/1148621.html
+
+   3. 中文字体
+
+
+   4. 参考文献
+      - 编译方法
+        参考《latex 入门，刘海洋》
+        #+BEGIN_SRC sh
+        xelatex xxx.tex
+        bibtex xxx.aux
+        xelatex xxx.tex
+        xelatex xxx.tex
+        #+END_SRC
+
+      - 分章节插入参考文献
+        https://www.douban.com/note/331370169/
+        1. 用 \include{chap0X} 的方式插入各个章节的 .tex 文件；
+
+        2. 每个章节的 .tex 文件尾部都要指明
+           \bibliographystyle 和 \bibliography
+
+        3. 编译顺序
+
+           #+BEGIN_SRC sh
+           xelatex xxx.tex
+
+           bibtex chap01.aux
+           bibtex chap02.aux
+           bibtex chap0N.aux
+
+           xelatex xxx.tex
+           xelatex xxx.tex
+           #+END_SRC
+** pdf
+   根据[[https://askubuntu.com/questions/23322/a-pdf-viewer-supporting-synctex-for-gnome][ 推荐]] 安装 MuPDF。
+   但是 evince 也支持 SyncTex，可以把 evince [[http://www.itzk.com/thread-583532-56-1.shtml][设置为默认的pdf阅读器]] ，使用一下。
+* 编写
+** 基本概念
+   参考 [fn:3][fn:2]
+** 中文配置
+
+*** 不使用宏包
+    需要设置所用字体，命令fc-list :lang=zh-cn用来查看系统字体。
+
+    #+BEGIN_SRC latex
+    \documentclass[11pt,a4paper]{article}
+    \usepackage{fontspec}  
+    \setmainfont{WenQuanYi Micro Hei}
+    \begin{document}
+    Hello world!
+
+    你好，世界！
+    \end{document}
+    #+END_SRC
+*** CJK
+    参考[[http://liuchengxu.org/blog-cn/posts/quick-latex/][这里 ]]编写一个中文文档，文档内容如下：
+    #+BEGIN_SRC latex
+    \documentclass[11pt]{article}  %百分号表示注释
+    \usepackage{CJK}               %引入CJK宏包
+    \begin{document}               
+    \begin{CJK}{UTF8}{song}        
+      Hello, World!
+
+      你好，世界！
+    \end{CJK}
+    \end{document}
+    #+END_SRC
+
+    使用 xelatex 编译：=xelatex hello.tex=，并没有发现错误，但从 hello.log 文件中发现有如下错误：
+    #+BEGIN_EXAMPLE
+    Missing character: There is no 你 in font [lmroman10-regular]:mapping=tex-text;!
+    #+END_EXAMPLE
+    据说这是 ubuntu10.04 的一个 bug[fn:1],虽然我已经是 16.04, 还是参考了修复一下，然并卵。
+
+*** ctexart
+
+    #+BEGIN_SRC latex
+    \documentclass[utf8]{ctexart}
+    \begin{document}               %begin与end成对出现
+    hello world!
+
+    你好，世界！
+    \end{document}
+    #+END_SRC
+    编译会看到有警告：<<警告>>
+    #+BEGIN_EXAMPLE
+    *************************************************
+    * fontspec warning: "script-not-exist"
+    * 
+    * Font 'FandolSong-Regular' does not contain script 'CJK'.
+    *************************************************
+    #+END_EXAMPLE
+    不过没有关系，可以正确生成 pdf 了。使用的编译命令：=xelatex hello.tex=。
+
+    刘海洋在《Latex 入门》一书中提到：
+    #+BEGIN_QUOTE
+    ctex 宏包及文档类（如 ctexart ）另外定义了一些组合字体，可以让中文具备粗体和意大利体的功能。
+    #+END_QUOTE
+    这其中
+*** xeCJK
+
+    #+BEGIN_SRC latex
+    \documentclass[11pt]{article}  %百分号表示注释
+    \usepackage{xeCJK}               %引入CJK宏包
+    \begin{document}               %begin与end成对出现
+    Hello world!
+
+    你好，世界！
+    \end{document}
+    #+END_SRC
+    使用 xeCJK 宏包，编译成功，正常显示中文。也遇到了相同的[[警告][警告]]。
+* Footnotes
+
+[fn:3] http://mikewootc.com/wiki/tool/doc_process/latex_all_kinds.html
+
+[fn:2] http://blog.csdn.net/dbzhang800/article/details/6820659
+
+[fn:1] https://tex.stackexchange.com/questions/652/xetex-not-working-on-ubuntu-10-04
+
+
+
+  

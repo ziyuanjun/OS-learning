@@ -1,9 +1,10 @@
 * 常见问题
 ** 文字编辑
    参考：https://kb.iu.edu/d/aiug
-
+ kh
    主要列出 insert mode 下的快捷键（因为Vim normal mode 已熟练）。
 *** 粘贴
+    头两个在 org 中似乎不对：
    To cut the text, press C-w.
    To copy the text, press M-w.
    To paste the text, press C-y. 紧接着 press M-y 可以调出剪切版
@@ -12,13 +13,54 @@
    - =C-x u= 图形化编辑历史
    - =M-x undo= 
 *** 删除
-    | keying name | function | 功能           | 备注                  |
-    |-------------+----------+----------------+-----------------------|
-    | M-j         |          | 拼音－>En      | 自定义                |
-    | M-k         |          | kill sentence  | 删到下列符号（. ?等） |
-    | C-k         |          | kill line      |                       |
-    | M-d         |          | kill word      |                       |
-    | C-Backspace |          | kill back word |                       |
+    | keying name | function           | 功能             | normal-state | instert-state | 备注                  |
+    |-------------+--------------------+------------------+--------------+---------------+-----------------------|
+    | M-j         |                    | 拼音－>En        |              |               | 自定义                |
+    | M-k         |                    | kill sentence    |              |               | 删到下列符号（. ?等） |
+    | C-k         |                    | kill line        |              |               |                       |
+    | C-del       |                    | kill word        | y            | y             |                       |
+    | M-d         |                    | kill word        | y            | y             |                       |
+    | C-Backspace |                    | kill back word   | y            | y             |                       |
+    | M-del       |                    | kill back word   | y            | y             |                       |
+    | C-w         |                    | kill back word   | n            | y             |                       |
+    | C-x C-o     | delete-blank-lines | 删除前后的空白行 | y            | y             |                       |
+    | C-d         | org-delete-char    | 删除一个字符     | n            | y             |                       |
+    | C-x d       |                    | dired            |              |               |                       |
+
+
+    将最好用的删除操作总结如下：
+    | 操作       | normal state key | insert state key |
+    |------------+------------------+------------------|
+    | 右删1字符  | x                | C-d 或 del       |
+    | 左删1字符  | h x              | Backspace        |
+    | 右删1词    | d w              | C-del            |
+    | 左删1词    | d W              | C-Backspace      |
+    | 删全词     | d a w            |                  |
+    | 右删到行尾 |                  | C-k              |
+    | 左删到行首 |                  |                  |
+    删字符：Backspace del
+    删词：C-Backspace C-del
+    删到行尾：C-k
+    删到行首：
+
+** Dired Mode
+   Dired Mode 是一个强大的模式它能让我们完成和文件管理相关的所有操作。
+   在 dired mode 下完成文件相关的操作方法总结如下。
+
+   使用 C-x d 就可以进入 Dired Mode，这个模式类似于图形界面系统中的资源管理器。你 可以在其中查看文件和目录的详细信息，对他们进行各种操作，甚至复制粘贴缓冲区中的内 容。下面是一些常用的操作（下面的所有键均需在 Dired Mode 下使用），
+   | keying             | function | 功能            | 备注 |
+   |--------------------+----------+-----------------+------|
+   | C-x d 或者 SPC f j |          | 进入 Dired Mode |      |
+   | =^=                  |          | 上一层目录      |      |
+   | +                  |          | 创建目录        |      |
+   | g                  |          | 刷新            |      |
+   | d                  |          | 标记删除        |      |
+   | D                  |          | 删除            |      |
+   | x                  |          | 执行所有标记    |      |
+   | u                  |          | 取消所有标记    |      |
+   | R                  |          | 重命名          |      |
+   | C                  |          | 拷贝            |      |
+
 
 * 使用 tags 浏览代码
 ** 几种 tags 工具的对比
@@ -53,12 +95,12 @@
 
 * Org 写作常用快捷键
 ** 选中（mark）
-   | keying name | function   | 功能            |
-   |-------------+------------+-----------------|
-   | C-c @       |            | 选中当前subtree |
-   | C-M-h       | mark-defun | 选中当前函数    |
-   | C-x h       | mark-      | 选中全文        |
-   | C-x C-p     |            | 选中当前页      |
+   | keying name | function   | 功能            | 备注                   |
+   |-------------+------------+-----------------+------------------------|
+   | C-c @       |            | 选中当前subtree |                        |
+   | C-M-h       | mark-defun | 选中当前函数    |                        |
+   | C-x h       | mark-      | 选中全文        | 注意 C-x 和 h 是分开的 |
+   | C-x C-p     |            | 选中当前页      |                        |
 ** 格式调整
    | keying name  | function | 功能               | 备注        |
    |--------------+----------+--------------------+-------------|

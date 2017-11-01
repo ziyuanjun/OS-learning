@@ -1,2 +1,7 @@
 plot/examples/
 *_thumb.png
+*.aux
+*.log
+*.dvi
+program/latex_demo/*.pdf
+
