@@ -65,8 +65,9 @@
    根据[[https://askubuntu.com/questions/23322/a-pdf-viewer-supporting-synctex-for-gnome][ 推荐]] 安装 MuPDF。
    但是 evince 也支持 SyncTex，可以把 evince [[http://www.itzk.com/thread-583532-56-1.shtml][设置为默认的pdf阅读器]] ，使用一下。
 * 编写
-** 基本概念
-   参考 [fn:3][fn:2]
+** 基本概念[fn:3][fn:2]
+   宏包
+   文档类
 ** 中文配置
 
 *** 不使用宏包
