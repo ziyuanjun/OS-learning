@@ -3,5 +3,9 @@ plot/examples/
 *.aux
 *.log
 *.dvi
+*.thm
+*.toc
+*.out
 program/latex_demo/*.pdf
+program/latex_demo/*/*.pdf
 

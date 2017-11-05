@@ -65,9 +65,71 @@
    根据[[https://askubuntu.com/questions/23322/a-pdf-viewer-supporting-synctex-for-gnome][ 推荐]] 安装 MuPDF。
    但是 evince 也支持 SyncTex，可以把 evince [[http://www.itzk.com/thread-583532-56-1.shtml][设置为默认的pdf阅读器]] ，使用一下。
 * 编写
-** 基本概念[fn:3][fn:2]
-   宏包
-   文档类
+** 基本概念[fn:3][fn:2][fn:4]
+相关(类似)的名词太多了，想分清不容易。以下仅列出部分。
+
+
+*** 宏包（package）
+    包含一些新的 LATEX 命令的文件，如果这些命令可以在多个文档类中使用，则该文件就称为一个宏包，后缀为 .sty。
+*** 文档类（document class）
+    包含一些新的 LATEX 命令的文件，如果这些命令不可以在多个文档中使用，则该文件就称为一个文档类，后缀为 .cls。
+
+  
+*** ctex 宏包
+    ctex宏包提供了一个统一的中文LaTeX文档框架,底层支持CCT、CJK和xeCJK三种中文LaTeX系统。
+
+    ctex宏包提供了编写中文LaTeX文档常用的一些宏定义和命令。
+
+    主要文件包括ctexart.cls、ctexrep.cls、ctexbook.cls 和 ctex.sty、ctexcap.sty。
+
+*** Latex 命令
+    Latex 有三中命令：
+    - 作者命令
+      写作使用的命令，例如 =\section=, \emph, \times 等。这些命令通常都是小写的，且长度较短。
+    - 类和宏包命令
+      编写类和宏包使用的命令，这些命令通常大小写混合，且长度较长。例如：
+      \InputIfFileExists, \RequirePackage, \PassOptionsToClass
+    - 内部命令
+      用于实现 LATEX 的命令，命令的名称中通常包含 @, 这样的命令只在类和宏包中使用，不会出现在文档中。例如：
+      \@tempcnta, \@ifnextchar,  \@eha
+
+      由于历史原因，有些命令并没有遵守上面的准则。
+
+*** 单位
+   | 符号  | 量                                                   | 名称         |
+   |-------+------------------------------------------------------+--------------|
+   | pt    | 欧美传统排版的长度单位                               | 磅           |
+   | pc    | 相当于四号字大小                                     | 1 pc=12 pt   |
+   | in    | inch英寸                                             | 1 in=72.27pt |
+   | bp    | big point 大点（PostScript中点指大点，1 in=72bp）    |              |
+   | em    | 字号对应长度，一个\quad的长度，本意为大写字母M的宽度 | 全身         |
+   | cm,mm | 不解释                                               |              |
+   |       |                                                      |              |
+
+Word字体的字号与磅值(pt)对应关系
+
+字号码    磅值(pt)
+八号    5
+七号    5.5
+小六    6.5
+六号    7.5
+小五    9
+五号    10.5
+小四    12
+四号    14
+小三    15
+三号    16
+小二    18
+二号    22
+小一    24
+一号    26
+小初    36
+初号    42
+
+*** 脚注
+
+调整缩进、行距等：
+    https://tex.stackexchange.com/questions/96116/is-this-the-right-way-to-format-foot-notes/96401#96401
 ** 中文配置
 
 *** 不使用宏包
@@ -131,16 +193,28 @@
 *** xeCJK
 
     #+BEGIN_SRC latex
-    \documentclass[11pt]{article}  %百分号表示注释
-    \usepackage{xeCJK}               %引入CJK宏包
-    \begin{document}               %begin与end成对出现
+    \documentclass[11pt]{article}  
+    \usepackage{xeCJK}               
+    \begin{document}               
     Hello world!
 
     你好，世界！
     \end{document}
     #+END_SRC
     使用 xeCJK 宏包，编译成功，正常显示中文。也遇到了相同的[[警告][警告]]。
+** 实例
+   一个简历的例子：[[https://www.sharelatex.com/blog/2011/03/27/how-to-write-a-latex-class-file-and-design-your-own-cv.html][原文]] 和 [[http://www.superzhang.site/blog/how-to-write-a-latex-class-file/][翻译]]
+[[https://en.wikibooks.org/wiki/LaTeX/Rules_and_Struts][命令速查]]
+常用命令：
+\rule[raise]{width}{thickness}
+\makebox[width][pos]{text}
+\raisebox{lift}[height][depth]{text}
+\sethead[偶数页左页眉][偶数页中页眉][偶数页右页眉] {奇数页左页眉}{奇数页中页眉}{奇数页右页眉}
+
+单面打印模式只要给出奇数页的设置即可，双面模式则需要将左、右页眉做个调 换。
 * Footnotes
+
+[fn:4] http://math.ecnu.edu.cn/~latex/faq/cls.htm
 
 [fn:3] http://mikewootc.com/wiki/tool/doc_process/latex_all_kinds.html
 
