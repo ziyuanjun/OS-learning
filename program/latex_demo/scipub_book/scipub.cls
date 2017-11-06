@@ -42,7 +42,9 @@
 \usepackage{CJKnumb}
 %\RequirePackage{CJKnumber}
 \RequirePackage{indentfirst}
-\RequirePackage{cite}
+\usepackage[numbers, sort&compress]{natbib}
+\usepackage[sectionbib]{chapterbib}
+%% \RequirePackage{cite}
 \RequirePackage{pifont,mathrsfs,tabularx,rotating,supertabular}
 
 %% 字体
