@@ -8,4 +8,5 @@ plot/examples/
 *.out
 program/latex_demo/*.pdf
 program/latex_demo/*/*.pdf
+program/latex_demo/scipub_book/
 

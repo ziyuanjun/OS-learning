@@ -45,6 +45,12 @@ Python 学习中遇到的问题总结。
   #+END_SRC
   最终的函数 spam() 是先后被 bar() 和 foo() 包装的对象。
 
+* Flask
+  Flask 是使用 Python 进行 Web 开发的微框架。
+
+
+** 蓝本
+
 
 
 
