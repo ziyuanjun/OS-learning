@@ -11,6 +11,18 @@
      #+END_SRC
 3. 音频控制软件：Audacity
 
+4. Silentcast
+  Install Silentcast in Ubuntu:
+
+	#+BEGIN_SRC sh
+	sudo add-apt-repository ppa:sethj/silentcast 
+	sudo apt-get update
+	sudo apt-get install silentcast
+	#+END_SRC
+
+5. 光盘刻录
+   Brasero （系统自带）
+
 * Footnotes
 
 [fn:3] http://nickjudd.com/blog/2016/02/13/emacs-notes/

@@ -155,6 +155,22 @@
 \renewcommand\contentsname{目\hspace{1em}录}
 \titlecontents{chapter}[0pt]{\vspace{.5\baselineskip}\bfseries} {第\thecontentslabel 章\quad}{} {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\contentspage} 
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}} % 上标形式引用
+\newcommand\equationname{公式}
+\renewcommand\bibname{参考文献}
+\renewcommand\figurename{图}
+\renewcommand\tablename{表}
+
+\def\thu@tabular{\xiaowu[1.25]\old@tabular}
+\DeclareCaptionLabelFormat{thu}{{\xiaowu[1.25]\song #1~\rmfamily #2}}
+\DeclareCaptionLabelSeparator{thu}{\hspace{1em}} %图 label 和标题之间空一个空格
+\DeclareCaptionFont{thu}{\xiaowu[1.25]}
+\captionsetup{labelformat=thu,labelsep=thu,font=thu}
+\captionsetup[figure]{position=bottom,belowskip=-3bp \@plus 2bp \@minus 2bp,aboveskip=6bp \@plus 2bp \@minus 2bp}%
+\captionsetup[subfloat]
+{labelformat=simple,font=thu,captionskip=6bp,nearskip=0bp,farskip=0bp,topadjust=0bp}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\renewcommand{\thesubtable}{(\alph{subtable})}
+
 
 \geometry{top=20mm,bottom=21.5mm,left=26mm,right=26mm}
 \geometry{headheight=9mm,headsep=1mm,footskip=9mm}
@@ -168,11 +184,17 @@
     \rule[0mm]{\linewidth}{1pt}}%
   \fi}
 \renewpagestyle{plain}{
-\sethead[\raisebox{1.4mm}{\xiaowu \thepage}][\raisebox{1.4mm}{\songti \xiaowu 阵列雷达最优子阵技术}][]{}{\raisebox{1.4mm}{\xiaowu \chaptertitle}}{\raisebox{1.4mm}{\xiaowu \thepage}}%
+\sethead[\raisebox{1.4mm}{\xiaowu \thepage}][\raisebox{1.4mm}{\songti \xiaowu 阵列雷达最优子阵技术}][]{}{\raisebox{1.4mm}{\xiaowu {\chaptertitle}}}{\raisebox{1.4mm}{\xiaowu \thepage}}%
 %% \setfoot{}{{\songti \wuhao 第~\thepage~页}}{}%
 \headrule%
 %% \footrule%
 }
+%% \renewpagestyle{plainmain}{
+%% \sethead[\raisebox{1.4mm}{\xiaowu \thepage}][\raisebox{1.4mm}{\songti \xiaowu 阵列雷达最优子阵技术}][]{}{\raisebox{1.4mm}{\xiaowu {第~\thechapter~章\quad \chaptertitle}}}{\raisebox{1.4mm}{\xiaowu \thepage}}%
+%% %% \setfoot{}{{\songti \wuhao 第~\thepage~页}}{}%
+%% \headrule%
+%% %% \footrule%
+%% }
 \setfootrule{1bp}
 \renewcommand\frontmatter{%
     \if@openright\cleardoublepage\else\clearpage\fi
@@ -212,6 +234,8 @@
 \setlength{\footnotesep}{2.2ex \@minus 2bp}
 %% \RequirePackage{everypage}
 %% \AddEverypageHook{\setcounter{footnote}{0}} 
+\makeatletter
+\@addtoreset{footnote}{page}
 
 
 %% \renewcommand{\thefootnote}{\textcircled{\arabic{footnote}}}
@@ -220,10 +244,14 @@
 \titleformat{\subsection}{\sf \heiti\wuhao[1.25]}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\bfseries \kaishu\wuhao[1.25]}{\thesubsubsection}{1em}{}
 % \titlespacing*{命令}{左距离}{上距离}{下距离} 
-\titlespacing{\chapter}{0pt}{2.4ex-\topskip-\heightof{A}}{2.4ex \@minus 2bp}
-\titlespacing{\section}{0pt}{2ex-\heightof{a}}{2ex \@minus 2bp}
-\titlespacing{\subsection}{0pt}{2ex \@minus 2bp}{2ex \@minus 2bp}
-\titlespacing{\subsubsection}{2em}{1ex \@minus 2bp}{0ex \@minus 2bp}
+%% \titlespacing{\chapter}{0pt}{2.4ex-\topskip-\heightof{A}}{2.4ex \@minus 2bp}
+\titlespacing{\chapter}{0pt}{16pt}{16pt}
+%% \titlespacing{\section}{0pt}{2ex-\heightof{a}}{2ex \@minus 2bp}
+\titlespacing{\section}{0pt}{14pt}{14pt}
+%% \titlespacing{\subsection}{0pt}{2ex \@minus 2bp}{2ex \@minus 2bp}
+\titlespacing{\subsection}{0pt}{10.5pt}{10.5pt}
+%% \titlespacing{\subsubsection}{2em}{1ex \@minus 2bp}{0ex \@minus 2bp}
+\titlespacing{\subsubsection}{2em}{10.5pt}{10.5pt}
 
 %% \titleformat{\section}         % Customise the \section command 
 %%   {\Large\scshape\raggedright} % Make the \section headers large (\Large),
@@ -253,7 +281,32 @@
 \setlength{\parskip}{0bp \@minus 2bp}
 \newcommand*{\ziju}[1]{\renewcommand{\CJKglue}{\hskip #1}}
 
+\renewenvironment{thebibliography}[1]{%
+   \chapter*{\bibname}%
+   \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\renewcommand{\makelabel}[1]{##1\hfill}
+         \settowidth\labelwidth{1.1cm}
+         \setlength{\labelsep}{0.4em}
+         \setlength{\itemindent}{0pt}
+         \setlength{\leftmargin}{\labelwidth+\labelsep}
+         \addtolength{\itemsep}{-0.7em}
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+    \sloppy\frenchspacing
+    \clubpenalty4000%
+    \widowpenalty4000%
+    \interlinepenalty4000%
+    \sfcode`\.\@m}
+   {\def\@noitemerr
+     {\@latex@warning{Empty `thebibliography' environment}}%
+    \endlist\frenchspacing}
 %% \newpagestyle{mainpage}{
 %% \sethead{\sectiontitle}{}{\sc \thepage}
 %% \setfoot{}{}{}
 %% \headrule}
+
+\newtheorem{proof}{证明}[chapter]
+\newtheorem{assumption}{假设}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{lemma}{引理}[chapter]

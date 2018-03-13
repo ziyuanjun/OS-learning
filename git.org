@@ -1,2 +1,63 @@
+* Command line instructions
+** Git global setup
 
+#+BEGIN_SRC sh
+git config --global user.name "ziyuan"
+git config --global user.email "xzy_study@163.com"
+#+END_SRC
+
+** Create a new repository
+
+#+BEGIN_SRC sh
+git clone git@gitlab.com:ziyuanjun/test.git
+cd test
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+#+END_SRC
+
+** Existing folder
+
+#+BEGIN_SRC sh
+cd existing_folder
+git init
+git remote add origin git@gitlab.com:ziyuanjun/test.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+#+END_SRC
+
+** Existing Git repository
+
+#+BEGIN_SRC sh
+cd existing_repo
+git remote add origin git@gitlab.com:ziyuanjun/test.git
+git push -u origin --all
+git push -u origin --tags
+#+END_SRC
+
+
+
+* 合并
+分支多了，有时会在错误的分支上完成了提交，然后怎么把修改合并到 master 分支上？
+
+例：在 origin\master 分支上完成了修改，并 commit。想将修改合并到 master 分支。
+
+http://iissnan.com/progit/html/zh/ch3_2.html
+
+[[file:git.org_imgs/20171122_233039_50780AQ.png]]
+
+* 移除
+   想把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。换句话说，仅是从跟踪清单中删除。比如一些大型日志文件或者一堆 .a 编译文件，不小心纳入仓库后，要移除跟踪但不删除文件，以便稍后在 .gitignore 文件中补上，用 --cached 选项即可：
+
+$ git rm --cached readme.txt
+
+后面可以列出文件或者目录的名字，也可以使用 glob 模式。
+
+** git 经验总结
+   如果开始使用分支了，那么版本库最好只单纯地用来管理代码，记录的笔记之类的在多个版本库之间切换容易搞混。
+   笔记的记录适合只使用一个分支的版本库，可以将代码版本库对应的笔记放在版本库下不被代码版本库追踪的路径下，单独再用另一个版本库保存到云。
+
+   
 

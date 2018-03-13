@@ -1,0 +1,41 @@
+此处记录虚拟主机的使用
+
+
+* 购买
+  (略)
+* 远程登录
+** ssh
+*** 安装
+    服务器安装 ssh。默认情况下都开启了 ssh 服务，可以通过下面的名利确认sshserver是否启动了：
+    #+BEGIN_SRC sh
+    ps -e |grep ssh
+    #+END_SRC
+    如果看到sshd那说明ssh-server已经启动了。
+
+*** 证书认证自动登录
+    将本地的 ssh pub key 拷贝到服务器：
+    #+BEGIN_SRC sh
+    ssh-copy-id remote_host_user@ip
+    #+END_SRC
+    
+
+*** 拷文件
+    获取远程服务器上的文件
+
+    scp -P 2222 root@www.vpser.net:/root/lnmp0.4.tar.gz /home/lnmp0.4.tar.gz
+
+    2、获取远程服务器上的目录
+
+    scp -P 2222 -r root@www.vpser.net:/root/lnmp0.4/ /home/lnmp0.4/
+
+    3、将本地文件上传到服务器上
+
+    scp -P 2222 /home/lnmp0.4.tar.gz root@www.vpser.net:/root/lnmp0.4.tar.gz
+
+    4、将本地目录上传到服务器上
+
+    scp -P 2222 -r /home/lnmp0.4/ root@www.vpser.net:/root/lnmp0.4/
+
+
+* 布网站
+** nginx

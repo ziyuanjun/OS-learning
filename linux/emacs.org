@@ -125,6 +125,9 @@
     |----------+----------------+---|
     | C-c 竖线 | 创建或文本转换为表格 |   |
 
+    怎样 colspan 或者 rowspan ?
+    下面这种方法在视觉上和 html 输出上都比较好：
+    https://emacs.stackexchange.com/questions/7299/multicolumn-cells-in-org-mode-tables
 
 *** 超链接
     参考 org 官网的 [[http://orgmode.org/manual/Handling-links.html][Handle-links]]:
@@ -138,6 +141,12 @@
     | C-c C-o       |          | 打开链接           |             |
     | Enter         |          | 打开链接           | normal mode |
     |               |          |                    |             |
+
+* Agenda
+    | keying | 功能        |   |
+    |--------+-------------+---|
+    | C-c a  | org-agenda  |   |
+    | C-c c  | org-capture |  122 |
 
 * 编程
 ** python

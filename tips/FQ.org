@@ -11,22 +11,29 @@
 
 
 ** 编辑 ss 配置文件 :secret:
------BEGIN PGP MESSAGE-----
-Version: GnuPG v2
+   -----BEGIN PGP MESSAGE-----
+   Version: GnuPG v2
 
-jA0EBwMCHbo67LPkBgfm0sAzASE6hBKb1O7b/lfuzV7fJqt5yGcm/rYex25u39+r
-yYjX47JeoydQQsYyA9U1PGt9hZSpxbgW9JWKF856GhdvDEltbfMX21wpKlTdVM2F
-FkfNak4eL59rDWOCBaWVZK3/Ba8ERAvGFXgYDXTclZcWjCsX+JCuoL1SSFK17tFg
-s8f/J8+BmWxrQ76uywJIAFcWkASgVs1HNbamZDFXFFqdWcWvMdFSvDlBBFNGUAxk
-CIJnRlQG+mptB57yvMmyhPNkfn+6KDmEvdhW9jn/5zz0sUb7ciTVStD9EPAa8IAB
-UBWrg6JaTDAhh4upoTYXFKCZM2nu
-=9C1D
------END PGP MESSAGE-----
+   jA0EBwMCHbo67LPkBgfm0sAzASE6hBKb1O7b/lfuzV7fJqt5yGcm/rYex25u39+r
+   yYjX47JeoydQQsYyA9U1PGt9hZSpxbgW9JWKF856GhdvDEltbfMX21wpKlTdVM2F
+   FkfNak4eL59rDWOCBaWVZK3/Ba8ERAvGFXgYDXTclZcWjCsX+JCuoL1SSFK17tFg
+   s8f/J8+BmWxrQ76uywJIAFcWkASgVs1HNbamZDFXFFqdWcWvMdFSvDlBBFNGUAxk
+   CIJnRlQG+mptB57yvMmyhPNkfn+6KDmEvdhW9jn/5zz0sUb7ciTVStD9EPAa8IAB
+   UBWrg6JaTDAhh4upoTYXFKCZM2nu
+   =9C1D
+   -----END PGP MESSAGE-----
 ** 自动
-  [[https://www.linuxbabe.com/linux-server/setup-your-own-shadowsocks-server-on-debian-ubuntu-centos][开机自动启动]]
+   [[https://www.linuxbabe.com/linux-server/setup-your-own-shadowsocks-server-on-debian-ubuntu-centos][开机自动启动]]
 ** 定期升级
    #+BEGIN_SRC sh
    yum -y update
+   #+END_SRC
+
+** 错误排查
+   Check Shadowsocks log
+
+   #+BEGIN_SRC sh
+   less /var/log/shadowsocks.log
    #+END_SRC
 * 客户端
 

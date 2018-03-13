@@ -1,0 +1,9 @@
+
+命令行：
+
+https://www.vpser.net/manage/scp.html
+
+centos 配 ftp
+https://www.tecmint.com/install-ftp-server-in-centos-7/
+service vsftpd start
+

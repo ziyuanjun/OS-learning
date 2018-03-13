@@ -21,36 +21,41 @@ Python 学习中遇到的问题总结。
   函数、方法或类的前面可以使用一个特殊的符号，称为*装饰器*，其目的是修改定义后面的行为。
 ** 语法
 
-  使用 @ 符号，必须放在单独的行上并且位于对应的函数、方法或者类之前，例如：
+   使用 @ 符号，必须放在单独的行上并且位于对应的函数、方法或者类之前，例如：
 
-  #+BEGIN_SRC py
+   #+BEGIN_SRC py
   @staticmethod
   def bar():
       pass
-  #+END_SRC
-  可以使用多个装饰器，但每个装饰器必须位于不同的行上，例如：
-  #+BEGIN_SRC py
+   #+END_SRC
+   可以使用多个装饰器，但每个装饰器必须位于不同的行上，例如：
+   #+BEGIN_SRC py
   @foo
   @bar
   def spam():
       pass
-  #+END_SRC
-  <<demo>>
+   #+END_SRC
+   <<demo>>
 ** 用途
    装饰器本质上是一个函数，主要用途是包装另一个函数或类。比如上面的[[demo][例子]]中，定义好函数 spam() 之后，函数对象本身就立即被传递给函数 bar() 和 foo()，相当于：
-  #+BEGIN_SRC py
+   #+BEGIN_SRC py
   def spam():
       pass
   spam = foo(bar(spam()))
-  #+END_SRC
-  最终的函数 spam() 是先后被 bar() 和 foo() 包装的对象。
+   #+END_SRC
+   最终的函数 spam() 是先后被 bar() 和 foo() 包装的对象。
 
 * Flask
   Flask 是使用 Python 进行 Web 开发的微框架。
 
-
 ** 蓝本
 
+* 科学计算
+** 保存数据
+*** HDF5
+**** 查看 .hdf5 文件
+     Vitables
+     http://vitables.org/Docs/faq.html#how-can-i-use-the-latest-revision-from-the-git-repository
 
 
 
