@@ -10,7 +10,7 @@
    #+END_SRC
 
 
-** 编辑 ss 配置文件 :secret:
+** 编辑 ss 配置文件 
    -----BEGIN PGP MESSAGE-----
    Version: GnuPG v2
 
@@ -22,6 +22,10 @@
    UBWrg6JaTDAhh4upoTYXFKCZM2nu
    =9C1D
    -----END PGP MESSAGE-----
+   编辑配置文件
+   #+BEGIN_SRC sh
+   vi /etc/shadowsocksr.json
+   #+END_SRC
 ** 自动
    [[https://www.linuxbabe.com/linux-server/setup-your-own-shadowsocks-server-on-debian-ubuntu-centos][开机自动启动]]
 ** 定期升级
@@ -35,6 +39,11 @@
    #+BEGIN_SRC sh
    less /var/log/shadowsocks.log
    #+END_SRC
+*** 重启SS服务
+    #+BEGIN_SRC sh
+    sudo ssserver -c /etc/shadowsocks.json -d stop
+    sudo ssserver -c /etc/shadowsocks.json -d start
+    #+END_SRC
 * 客户端
 
   1. 安装ss-qt
