@@ -1,31 +1,45 @@
 * linux下ssh远程登录服务器
 
 ** 基本登录命令：
-#+BEGIN_SRC sh
-ssh usrname@ip_of_server
-#+END_SRC
-Then after inputing the password, you can login.
+   #+BEGIN_SRC sh
+   ssh usrname@ip_of_server
+   #+END_SRC
+   Then after inputing the password, you can login.
 
 ** 免密登录：
 
-1. copy 本地.ssh/id_rsa.pub to server
-2. login server and run
-    #+BEGIN_SRC sh
-    cat id_rsa.pub >> .ssh/authorized_keys
-    #+END_SRC
-3. logout. Then you can login without password.
+   1. copy 本地.ssh/id_rsa.pub to server
+   2. login server and run
+      #+BEGIN_SRC sh
+      cat id_rsa.pub >> .ssh/authorized_keys
+      #+END_SRC
+   3. logout. Then you can login without password.
 
 
-FAQ:
-1.
-   ssh: connect to host 192.168.0.101 port 22: Connection refused
-   检查远程是否安装了 ssh server:
-    1.是否安装ssh-server:
+   FAQ:
+   1.
+      ssh: connect to host 192.168.0.101 port 22: Connection refused
+      检查远程是否安装了 ssh server:
+      1.是否安装ssh-server:
 
-打开"终端窗口"，输入"sudo ps -e |grep ssh"-->回车-->有sshd,说明ssh服务已经启动，如果没有启动，输入"sudo service ssh start"-->回车-->ssh服务就会启动。若无sshd:
+   打开"终端窗口"，输入"sudo ps -e |grep ssh"-->回车-->有sshd,说明ssh服务已经启动，如果没有启动，输入"sudo service ssh start"-->回车-->ssh服务就会启动。若无sshd:
 
-打开"终端窗口"，输入"sudo apt-get install openssh-server"-->回车-->输入"y"-->回车-->安装完成。
+   打开"终端窗口"，输入"sudo apt-get install openssh-server"-->回车-->输入"y"-->回车-->安装完成。
+
+** 使用ssh 实现文件拷贝
+   使用 =scp= 命令，参考[fn:1][fn:2]
+   #+BEGIN_SRC sh
+   scp -P 111 root@23.106.141.235:lxle_16.04.4_32.iso ~/
+   #+END_SRC
 
 ** 参考：
 
-http://blog.csdn.net/qiushisoftware/article/details/55258624
+   http://blog.csdn.net/qiushisoftware/article/details/55258624
+
+* Footnotes
+
+[fn:2] http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/scp.html
+
+[fn:1] https://www.jianshu.com/p/138911af5475
+
+
