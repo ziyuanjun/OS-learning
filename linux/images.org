@@ -1,0 +1,5 @@
+* eps to png
+  使用imagemagick，安装完后可以使用 convert 命令完成图片格式的转换。
+  #+BEGIN_SRC sh 
+  convert density 300 xx.eps xx.png
+  #+END_SRC
