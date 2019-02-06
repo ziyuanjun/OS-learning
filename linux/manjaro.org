@@ -1,0 +1,11 @@
+* Manjaro linux 
+** 安装
+使用 imagewriter 制作启动盘
+** 备份和还原
+1. 使用了timeshift
+2. 以下几个文件在恢复时不应覆盖【恢复到不同的硬盘】
+/etc/fstab
+/boot/grub/grub.cfg
+/etc/default/grub 
+如果修改了，会出现错误，需要手动修复
+   如果在恢复时不重装启动程序，也许也不会有问题【未尝试】
