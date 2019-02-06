@@ -1,6 +1,7 @@
 * Manjaro linux 
 ** 安装
-使用 imagewriter 制作启动盘
+1.务必使用 imagewriter 制作启动盘，用ubootin、dd等工具都不行
+2.xfce没有配置系统代理的GUI，命令设置也未能与SS成功搭配使用。KDE能正常使用
 ** 备份和还原
 1. 使用了timeshift
 2. 以下几个文件在恢复时不应覆盖【恢复到不同的硬盘】
