@@ -1,0 +1,11 @@
+* Screenkey 
+
+     Screenkey 是一个命令行应用程序，您可以与屏幕录像应用程序一起使用，以确保按键更好地显示。
+     
+     下载 [[https://gitlab.com/wavexx/screenkey][screenkey (gitlab)]] 。 使用不安装的方式运行命令
+
+     ./screenkey
+
+     给上述命令起一个别名，使得不用每次都进入 screenkey 这个可执行文件的目录：
+
+     alias screenkey='~/Installer/screenkey-master/screenkey'
