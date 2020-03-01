@@ -1,0 +1,6 @@
+* 怎样知道自己装的 PyQt 版本
+  #+begin_src python
+  from PyQt5.QtCore import QT_VERSION_STR
+  print(QT_VERSION_STR)
+  #+end_src
+  参考：https://wiki.python.org/moin/PyQt/Getting%20the%20version%20numbers%20of%20Qt,%20SIP%20and%20PyQt
